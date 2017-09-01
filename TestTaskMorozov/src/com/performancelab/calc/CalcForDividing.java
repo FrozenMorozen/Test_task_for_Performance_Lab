@@ -57,19 +57,17 @@ public class  CalcForDividing {
         if (resultStr.length() > 10) {
             if (resultStr.indexOf(".") < 3 && resultStr.contains(".")) {
                 resultValue = new BigDecimal(resultValue).setScale(8, RoundingMode.DOWN).doubleValue();
-                resultRoundCommentLabel.setText("Результат был округлен");
                 resultStr=String.valueOf(String.format("%.8f%n",resultValue));
+                showRoundCommentLabel(resultRoundCommentLabel);
             } else {
-                //округляем целую часть
-                resultValue = Math.round(resultValue);
+                resultValue = Math.round(resultValue);   //округляем целую часть
                 resultStr=String.valueOf(resultValue);
+                showRoundCommentLabel(resultRoundCommentLabel);
             }
         }
         return resultStr;
     }
-
-
-
+    
     public CalcForDividing() {
 
         /**
@@ -137,7 +135,7 @@ public class  CalcForDividing {
         });
     }
 
-    public boolean checkCurrentValue(JTextField jTextField) {
+    private boolean checkCurrentValue(JTextField jTextField) {
         int dotCount = 0;
         char[] numbers=new char[]{'0','1','2','3','4','5','6','7','8','9','.'};
         boolean isNumber=true;
@@ -169,5 +167,17 @@ public class  CalcForDividing {
             }
         }
         return true;
+    }
+
+    private void showRoundCommentLabel(JLabel label) {
+        label.setText("Результат был округлен");
+        ActionListener listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resultRoundCommentLabel.setText("");
+            }
+        };
+        Timer timer = new Timer( 2000, listener );
+        timer.start();
     }
 }
