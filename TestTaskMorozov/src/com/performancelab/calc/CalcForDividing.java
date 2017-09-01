@@ -23,6 +23,8 @@ public class  CalcForDividing {
     private JLabel divisibleLabel;
     private JLabel divisorLabel;
     private JLabel resultRoundCommentLabel;
+    private char cop;
+
 
     /**
      * Создание главного фрейма приложения,
@@ -48,7 +50,7 @@ public class  CalcForDividing {
     /**
      * Округляет входящее значение double
      * @param resultValue- частное в формате double
-     * @return
+     * @return округлённое значение resultValue
      */
     private String roundResultValue(double resultValue) {
         String resultStr = String.valueOf(resultValue);
@@ -56,15 +58,6 @@ public class  CalcForDividing {
             if (resultStr.indexOf(".") < 3 && resultStr.contains(".")) {
                 resultValue = new BigDecimal(resultValue).setScale(8, RoundingMode.DOWN).doubleValue();
                 resultRoundCommentLabel.setText("Результат был округлен");
-                ActionListener listener = new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        resultRoundCommentLabel.setText("");
-                    }
-                };
-                Timer timer = new Timer( 2000, listener );
-                timer.start();
-
                 resultStr=String.valueOf(String.format("%.8f%n",resultValue));
             } else {
                 //округляем целую часть
@@ -80,7 +73,7 @@ public class  CalcForDividing {
     public CalcForDividing() {
 
         /**
-         * Слушатель событий кнопки "="
+         * Обработчик событий кнопки "="
          */
         equalSignButton.addActionListener(new ActionListener() {
             @Override
@@ -101,16 +94,19 @@ public class  CalcForDividing {
                         divisorTextField.selectAll();
                         break;
                     default:
-                        if (divisibleTextField.getText().equals("")){
-                            JOptionPane.showMessageDialog(null,
-                                    "Введите значение в поле \""+divisibleLabel.getText()+"\"");
-                            resultTextField.setText("");
-                            divisibleTextField.requestFocus();
-                        } else {
-                            double result=Double.parseDouble(divisibleTextField.getText()) /
-                                                                Double.parseDouble(divisorTextField.getText());
-                             resultTextField.setText(roundResultValue(result));
+                        if (checkCurrentValue(divisibleTextField)){
+                            if (divisibleTextField.getText().equals("")){
+                                JOptionPane.showMessageDialog(null,
+                                        "Введите значение в поле \""+divisibleLabel.getText()+"\"");
+                                resultTextField.setText("");
+                                divisibleTextField.requestFocus();
+                            } else {
+                                double result=Double.parseDouble(divisibleTextField.getText()) /
+                                        Double.parseDouble(divisorTextField.getText());
+                                resultTextField.setText(roundResultValue(result));
+                            }
                         }
+
                         break;
                 }
             }
@@ -118,39 +114,22 @@ public class  CalcForDividing {
 
         /**
          *  Обработчик событий нажатия клавиш в divisibleTextField
+         *  При нажатии "Enter" фокус перемещается на следущее текстовое поле
          */
         divisibleTextField.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
-                String regex="[0-9]{1,13}(\\.[0-9]*)?";
-                char c = e.getKeyChar();
-                if (divisibleTextField.getText().contains(".")){  //если есть точка
-                        regex="\\\\d+";
+                if (e.getKeyChar()==KeyEvent.VK_ENTER){
+                    divisorTextField.requestFocus();
                 }
-                if (!(divisibleTextField.getText().matches(regex)) && ((c < '0') || (c > '9')) &&
-                            (c != KeyEvent.VK_BACK_SPACE) && (c != KeyEvent.VK_DELETE)){
-                        e.consume();
-                    }
-                    if (c == KeyEvent.VK_SPACE){
-                        e.consume();
-                    }
-
-//                if (divisibleTextField.getText().length()>10){
-//                    e.consume();
-//                    JOptionPane.showMessageDialog(null,
-//                            "Максимальная длина введённого числа \n равна 10-ти символам");
-//               }else if (c==KeyEvent.VK_ENTER){
-//                    divisorTextField.requestFocus();
-//                }
             }
         });
 
         /**
          * Обработчик событий нажатия клавиш в divisorTextField
+         * При нажатии "Enter" фокус перемещается на кнопку "="
          */
         divisorTextField.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
-                formatterTextField(divisorTextField,e);
-
                 if (e.getKeyChar()==KeyEvent.VK_ENTER){
                     equalSignButton.requestFocus();
                 }
@@ -158,44 +137,37 @@ public class  CalcForDividing {
         });
     }
 
-    public void formatterTextField(JTextField jTextField,KeyEvent event){
-        char c = event.getKeyChar();
-        String regex="[0-9]{1,13}(\\.[0-9]*)?";
+    public boolean checkCurrentValue(JTextField jTextField) {
+        int dotCount = 0;
+        char[] numbers=new char[]{'0','1','2','3','4','5','6','7','8','9','.'};
+        boolean isNumber=true;
 
-        boolean flag=false;
-        if ((c < '0') || (c > '9')) {
-            flag=true;
+        for (char elementTextField : jTextField.getText().toCharArray()) {
+            if (elementTextField == '.') {
+                dotCount++;
+                continue;
+            }
+            if (!isNumber || dotCount>1){
+                if (!isNumber) {
+                    JOptionPane.showMessageDialog(null,
+                            "Введено неверное значение");
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Введено слишком много разделителей ("+dotCount+")");
+                }
+                jTextField.requestFocus();
+                jTextField.selectAll();
+                return false;
+            }
+            isNumber=false;
+            for (char elementNumbers: numbers) {
+                if (!isNumber){
+                    if (elementTextField==elementNumbers) {
+                        isNumber=true;
+                    }
+                } else break;
+            }
         }
-        int h=0;
-           for (int i=0;i<jTextField.getText().length();i++) {
-               if (jTextField.getText().contains(".")) {
-                   h++; //будет проверка если больше 1 то инвалид
-               }
-           }
-
-           if (flag || h>1){
-               JOptionPane.showMessageDialog(null,
-                       "Ошибочка dsikf");
-           }
-
-        if (c==KeyEvent.VK_D) {
-            JOptionPane.showMessageDialog(null,
-                    "Максимальная длина введённого числа \n равна 10-ти символам");
-        }
-        if (jTextField.getText().indexOf('.')!=-1){  //если есть точка
-            regex="\\\\d+";
-        }
-        if ( !jTextField.getText().matches(regex)&&((c < '0') || (c > '9')) &&
-                (c != KeyEvent.VK_BACK_SPACE) && (c != KeyEvent.VK_DELETE)){
-            event.consume();
-        }
-        if (c == KeyEvent.VK_SPACE){
-            event.consume();
-        }
-        if (jTextField.getText().length()>10){
-            event.consume();
-            JOptionPane.showMessageDialog(null,
-                    "Максимальная длина введённого числа \n равна 10-ти символам");
-        }
+        return true;
     }
 }
