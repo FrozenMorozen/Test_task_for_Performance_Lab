@@ -31,7 +31,6 @@ public class  CalcForDividing {
      * установка видимости, размеров, иконки
      * @return экземпляр JFrame с установленными параметрами
      */
-
     JFrame initJFrame(){
         JFrame jFrame=new JFrame() {};
         jFrame.setContentPane(new CalcForDividing().rootPanel);
@@ -67,8 +66,10 @@ public class  CalcForDividing {
         }
         return resultStr;
     }
-    
-    public CalcForDividing() {
+
+
+
+    CalcForDividing() {
 
         /**
          * Обработчик событий кнопки "="
@@ -76,34 +77,22 @@ public class  CalcForDividing {
         equalSignButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //resultTextField.size(resultTextField.getText().length() * 7);
                 switch (divisorTextField.getText()){
                     case "":
-                        JOptionPane.showMessageDialog(null,
-                                    "Введите значение в поле \""+divisorLabel.getText()+"\"");
-                        resultTextField.setText("");
-                        divisorTextField.requestFocus();
+                        clearResultFieldAndShowError(resultTextField,divisorTextField,divisorLabel.getText());
                         break;
                     case"0":
-                        JOptionPane.showMessageDialog(null,
-                                    "Деление на ноль невозможно");
-                        resultTextField.setText("");
-                        divisorTextField.requestFocus();
+                        clearResultFieldAndShowError(resultTextField,divisorTextField,"");
                         divisorTextField.selectAll();
                         break;
                     default:
-                        if (checkCurrentValue(divisibleTextField)){
-                            if (divisibleTextField.getText().equals("")){
-                                JOptionPane.showMessageDialog(null,
-                                        "Введите значение в поле \""+divisibleLabel.getText()+"\"");
-                                resultTextField.setText("");
-                                divisibleTextField.requestFocus();
-                            } else {
-                                double result=Double.parseDouble(divisibleTextField.getText()) /
+                        if (divisibleTextField.getText().equals("")){
+                            clearResultFieldAndShowError(resultTextField,divisibleTextField,divisibleLabel.getText());
+                        } else if (checkCurrentValue(divisibleTextField) &&checkCurrentValue(divisorTextField)) {
+                             double result=Double.parseDouble(divisibleTextField.getText()) /
                                         Double.parseDouble(divisorTextField.getText());
-                                resultTextField.setText(roundResultValue(result));
+                             resultTextField.setText(roundResultValue(result));
                             }
-                        }
 
                         break;
                 }
@@ -179,5 +168,15 @@ public class  CalcForDividing {
         };
         Timer timer = new Timer( 2000, listener );
         timer.start();
+    }
+
+    private void clearResultFieldAndShowError(JTextField resultField,JTextField invalidField,String invalidFieldName){
+        String message="Введите значение в поле \""+invalidFieldName+"\"";
+        if (invalidFieldName.equals("")){
+            message="Деление на ноль невозможно";
+        }
+        JOptionPane.showMessageDialog(null,message);
+        resultField.setText("");
+        invalidField.requestFocus();
     }
 }
