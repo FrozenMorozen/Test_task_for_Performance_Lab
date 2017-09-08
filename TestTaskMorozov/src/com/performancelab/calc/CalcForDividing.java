@@ -32,7 +32,7 @@ public class  CalcForDividing {
     /**
      * Конструктор класса
      */
-    CalcForDividing() {
+    public CalcForDividing() {
 
         /**
          * Обработчик событий кнопки "="
@@ -115,7 +115,7 @@ public class  CalcForDividing {
      * @return true - если введены корректные данные
      *         false - если введеные не корректные данные
      */
-    private boolean checkCurrentValue(JTextField jTextField) {
+    public boolean checkCurrentValue(JTextField jTextField) {
         int dotCount = 0;
         char[] numbers=new char[]{'0','1','2','3','4','5','6','7','8','9','.'};
         boolean isNumber=true;
