@@ -46,7 +46,7 @@ public class  CalcForDividing {
                                                         divisorLabel.getText());
                         break;
                     case"0":
-                        clearResultFieldAndShowError(resultTextField,divisorTextField,"");
+                        clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
                         divisorTextField.selectAll();
                         break;
                     default:
@@ -55,9 +55,13 @@ public class  CalcForDividing {
                                                             divisibleLabel.getText());
                         } else if (checkCurrentValue(divisibleTextField)
                                     && checkCurrentValue(divisorTextField)) {
-                             double result=Double.parseDouble(divisibleTextField.getText()) /
-                                        Double.parseDouble(divisorTextField.getText());
-                             resultTextField.setText(roundResultValue(result));
+                            /*
+                            Оперция деление
+                             */
+                            double divisible=Double.parseDouble(divisibleTextField.getText());
+                            double divisor=Double.parseDouble(divisorTextField.getText());
+                             resultTextField.setText(roundResultValue(divide(divisible,divisor)));
+
                             resultTextField.requestFocus();
                             }
                         break;
@@ -89,11 +93,10 @@ public class  CalcForDividing {
     }
 
     /**
-     * Создание главного фрейма приложения,
+     * Создание экземпляр JFrame с установленными параметрами,
      * установка видимости, размеров, иконки
-     * @return экземпляр JFrame с установленными параметрами
      */
-    JFrame launchApp(){
+    void launchApp(){
         JFrame jFrame=new JFrame() {};
         jFrame.setContentPane(new CalcForDividing().rootPanel);
         jFrame.setVisible(true);
@@ -105,7 +108,10 @@ public class  CalcForDividing {
         ImageIcon icon = new ImageIcon("src/resources/division.png");
         jFrame.setIconImage(icon.getImage());
         divisibleTextField.setFocusable(true);
-        return jFrame;
+    }
+
+    public double divide(double divisible,double divisor){
+        return divisible/divisor;
     }
 
     /**
@@ -116,45 +122,58 @@ public class  CalcForDividing {
      *         false - если введеные не корректные данные
      */
     public boolean checkCurrentValue(JTextField jTextField) {
-        int dotCount = 0;
-        char[] numbers=new char[]{'0','1','2','3','4','5','6','7','8','9','.'};
-        boolean isNumber=true;
+        return checkTextFieldOnLetters(jTextField)
+                && checkTextFieldOnDots(jTextField)
+                && checkLengthTextField(jTextField);
+    }
 
+    public boolean checkTextFieldOnDots(JTextField jTextField){
+        int dotsCount=0;
         for (char elementTextField : jTextField.getText().toCharArray()) {
-            if (elementTextField == '.') {
-                dotCount++;                 //счетчик точек в текстовом поле
-                continue;
-            }
-            if (!isNumber || dotCount>1){  // если символ не число или кол-во точек > 1
-                if (!isNumber) {
-                    JOptionPane.showMessageDialog(null,
-                            "Введено неверное значение");
-                } else {
-                    JOptionPane.showMessageDialog(null,
-                            "Введено слишком много разделителей ("+dotCount+")");
-                }
-                jTextField.requestFocus();
-                jTextField.setSelectedTextColor(Color.RED);
-                jTextField.selectAll();
-                return false;
-            }
-            isNumber=false;
-            for (char elementNumbers: numbers) {
-                if (!isNumber){
-                    if (elementTextField==elementNumbers) {  //соответствие символа строки с массивом чисел
-                        isNumber=true;
-                    }
-                } else break;
+            if (elementTextField=='.'){
+                dotsCount++;
             }
         }
+            /*
+            Проверка если введены одни точки
+            */
+        if (dotsCount==jTextField.getText().length()){
+            clearResultFieldAndShowError(resultTextField,jTextField,
+                    "Text field has ONLY dots!");
+            return false;
+        }else if (dotsCount>1){
+            clearResultFieldAndShowError(resultTextField,jTextField,
+                    "Text field has a lot of dots!");
+            return false;
+        }
+        return true;
+    }
 
+    /**
+     * Проверяет наличие букв в текстовом поле
+     * @param jTextField - текстовое поле для проверки
+     * @return false - если буквы в текстовом поле были найдены
+     *         true - в обратном случае
+     */
+    public boolean checkTextFieldOnLetters(JTextField jTextField){
+        for (char elementTextField : jTextField.getText().toCharArray()) {
+            if (!Character.isDigit(elementTextField) && elementTextField!='.') {
+                clearResultFieldAndShowError(resultTextField,jTextField,
+                                            "Text field has letters!");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkLengthTextField(JTextField jTextField){
         if (jTextField.getText().length()>recomendLength){
             JOptionPane.showMessageDialog(null,
                     "Значение должно содержать не более "+ recomendLength +" символов");
-            jTextField.requestFocus();
             /*
             Выделение символов, находящихся за пределами рекомендованного диапозона
              */
+            jTextField.requestFocus();
             jTextField.setSelectedTextColor(Color.RED);
             jTextField.setSelectionStart(recomendLength);
             jTextField.setSelectionEnd(jTextField.getText().length());
@@ -165,7 +184,7 @@ public class  CalcForDividing {
 
     /**
      * Округляет входящее значение double.
-     * @param resultValue- частное в формате double
+     * @param resultValue - частное в формате double
      * @return округлённое значение resultValue
      */
     private String roundResultValue(double resultValue) {
@@ -185,21 +204,34 @@ public class  CalcForDividing {
     }
 
     /**
+     * Выводит сообщение с именем некорректного текстового поля.
      * Очищает текстовое поле результата деления.
      * Перемещает фокус на некорретное текстовое поле.
-     * Выводит сообщение с именем некорректного текстового поля.
      * @param resultField - поле результата деления
      * @param invalidField - текстовое поле с некорректными данными
-     * @param invalidFieldName - имя текстового поля с некорретными данными
+     * @param errorMessage - имя текстового поля с некорретными данными
      */
-    private void clearResultFieldAndShowError(JTextField resultField,JTextField invalidField,String invalidFieldName){
-        String message="Введите значение в поле \""+invalidFieldName+"\"";
-        if (invalidFieldName.equals("")){
-            message="Деление на ноль невозможно";
+    private void clearResultFieldAndShowError(JTextField resultField,JTextField invalidField,String errorMessage){
+        String message="Введите значение в поле \""+errorMessage+"\"";
+        switch (errorMessage) {
+            case "0":
+                message = "Деление на ноль невозможно";
+                break;
+            case "Text field has letters!":
+                message = "Введено неверное значение \n'" + invalidField.getText() + "'";
+                break;
+            case "Text field has a lot of dots!":
+                message = "Введено слишком много разделителей '.'";
+                break;
+            case "Text field has ONLY dots!":
+                message = "Введите число вместо " + invalidField.getText();
+                break;
         }
         JOptionPane.showMessageDialog(null,message);
         resultField.setText("");
         invalidField.requestFocus();
+        invalidField.setSelectedTextColor(Color.RED);
+        invalidField.selectAll();
     }
 
     /**

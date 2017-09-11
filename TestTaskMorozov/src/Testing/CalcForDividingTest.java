@@ -27,6 +27,14 @@ public class CalcForDividingTest {
         }
     }
 
+    @Test
+    void testDivide(){
+        double minForRnd=5;
+        double maxForRnd=1;
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(5,calcForDividing.divide(minForRnd,maxForRnd));
+    }
+
     private static double rnd(double min, double max)
     {
         max -= min;
