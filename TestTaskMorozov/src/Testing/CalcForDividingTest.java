@@ -9,6 +9,8 @@ import static org.junit.Assert.*;
 
 public class CalcForDividingTest {
 
+    private static final double DELTA = 1e-15;
+
     @Test
     public void testActionPerformed(){
         double minForRnd=0.265;
@@ -28,11 +30,11 @@ public class CalcForDividingTest {
     }
 
     @Test
-    void testDivide(){
+    public void testDivide(){
         double minForRnd=5;
         double maxForRnd=1;
         CalcForDividing calcForDividing=new CalcForDividing();
-        assertEquals(5,calcForDividing.divide(minForRnd,maxForRnd));
+        assertEquals(minForRnd/maxForRnd,calcForDividing.divide(minForRnd,maxForRnd),DELTA);
     }
 
     private static double rnd(double min, double max)
