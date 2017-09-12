@@ -40,35 +40,44 @@ public class  CalcForDividing {
         equalSignButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switch (divisorTextField.getText()){
-                    case "":
-                        clearResultFieldAndShowError(resultTextField,divisorTextField,
-                                                        divisorLabel.getText());
-                        break;
+//                switch (divisorTextField.getText()){
+//                    case "":
+//                        clearResultFieldAndShowError(resultTextField,divisorTextField,
+//                                                        divisorLabel.getText());
+//                        break;
 //                    case"0":
 //                        clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
 //                        break;
-                    default:
-                        if (divisibleTextField.getText().equals("")){
-                            clearResultFieldAndShowError(resultTextField,divisibleTextField,
-                                                            divisibleLabel.getText());
-                        } else if (checkCurrentValue(divisibleTextField)
-                                    && checkCurrentValue(divisorTextField)) {
-                            /*
-                            Оперция деление
-                             */
-                            double divisible=Double.parseDouble(divisibleTextField.getText());
-                            double divisor=Double.parseDouble(divisorTextField.getText());
-                            try {
-                                resultTextField.setText(roundResultValue(divide(divisible,divisor)));
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                                clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
-                            }
-
-                            resultTextField.requestFocus();
-                            }
-                        break;
+//                    default:
+//                        if (divisibleTextField.getText().equals("")){
+//                            clearResultFieldAndShowError(resultTextField,divisibleTextField,
+//                                                            divisibleLabel.getText());
+//                        } else try {
+//                            if (checkCurrentValue(divisibleTextField)
+//                                        && checkCurrentValue(divisorTextField)) {
+//                                /*
+//                                Оперция деление
+//                                 */
+//                                double divisible=Double.parseDouble(divisibleTextField.getText());
+//                                double divisor=Double.parseDouble(divisorTextField.getText());
+//                                try {
+//                                    resultTextField.setText(roundResultValue(divide(divisible,divisor)));
+//                                } catch (Exception e1) {
+//                                    e1.printStackTrace();
+//                                }
+//
+//                                resultTextField.requestFocus();
+//                                }
+//                        } catch (Exception e1) {
+//                            e1.printStackTrace();
+//                        }
+//                        break;
+//                }
+                try {
+                    resultTextField.setText(divide(divisibleTextField.getText(),
+                                                        divisorTextField.getText()));
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
             }
         });
@@ -114,9 +123,36 @@ public class  CalcForDividing {
         divisibleTextField.setFocusable(true);
     }
 
-    public double divide(double divisible,double divisor) throws Exception {
-        if (divisor==0) throw new Exception("Деление на ноль невозможно");
-        return divisible/divisor;
+    /**
+     * Операция деления.
+     * Логически основной метод класса.
+     * @param divisible - делимое
+     * @param divisor - делитель
+     * @return значение частного
+     * @throws Exception исключение в случае получения невалидных данных
+     */
+    public String divide(String divisible, String divisor) throws Exception {
+        switch (divisor) {
+            case "":
+                clearResultFieldAndShowError(resultTextField,divisorTextField,
+                        divisorLabel.getText());
+                throw new Exception("Пустое поле "+divisorLabel.getText());
+            case "0":
+                clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
+                throw new ArithmeticException("Деление на ноль невозможно");
+            default:
+                if (divisible.equals("")){
+                    clearResultFieldAndShowError(resultTextField,divisibleTextField,
+                            divisibleLabel.getText());
+                    throw new Exception("Пустое поле "+divisibleLabel.getText());
+                } else if (checkCurrentValue(divisibleTextField)
+                        && checkCurrentValue(divisorTextField)) {
+                    return roundResultValue(Double.parseDouble(divisible)
+                                            /Double.parseDouble(divisor));
+                }
+                break;
+        }
+        return "";
     }
 
     /**
@@ -126,13 +162,13 @@ public class  CalcForDividing {
      * @return true - если введены корректные данные
      *         false - если введеные не корректные данные
      */
-    public boolean checkCurrentValue(JTextField jTextField) {
-        return checkTextFieldOnLetters(jTextField)
-                && checkTextFieldOnDots(jTextField)
-                && checkLengthTextField(jTextField);
+    public boolean checkCurrentValue(JTextField jTextField) throws Exception {
+            return checkTextFieldOnLetters(jTextField)
+                    && checkTextFieldOnDots(jTextField);
+
     }
 
-    public boolean checkTextFieldOnDots(JTextField jTextField){
+    private boolean checkTextFieldOnDots(JTextField jTextField){
         int dotsCount=0;
         for (char elementTextField : jTextField.getText().toCharArray()) {
             if (elementTextField=='.'){
@@ -160,18 +196,18 @@ public class  CalcForDividing {
      * @return false - если буквы в текстовом поле были найдены
      *         true - в обратном случае
      */
-    public boolean checkTextFieldOnLetters(JTextField jTextField){
+    private boolean checkTextFieldOnLetters(JTextField jTextField) throws Exception {
         for (char elementTextField : jTextField.getText().toCharArray()) {
             if (!Character.isDigit(elementTextField) && elementTextField!='.') {
                 clearResultFieldAndShowError(resultTextField,jTextField,
                                             "Text field has letters!");
-                return false;
+                throw new Exception("Тесктовое поле содержит нечисленые данные");
             }
         }
         return true;
     }
 
-    public boolean checkLengthTextField(JTextField jTextField){
+    private boolean checkLengthTextField(JTextField jTextField){
         if (jTextField.getText().length()>recomendLength){
             JOptionPane.showMessageDialog(null,
                     "Значение должно содержать не более "+ recomendLength +" символов");

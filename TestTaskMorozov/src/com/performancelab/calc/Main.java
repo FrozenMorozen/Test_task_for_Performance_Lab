@@ -8,6 +8,6 @@ public class Main {
         calcForDividing.launchApp();
 
         String s="2";
-        System.out.println("Значение=>"+Double.parseDouble(s)+"<=");
+        System.out.println("Значение=>"+5/0+"<=");
     }
 }
