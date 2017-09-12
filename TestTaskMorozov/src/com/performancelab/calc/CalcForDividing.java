@@ -40,39 +40,6 @@ public class  CalcForDividing {
         equalSignButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                switch (divisorTextField.getText()){
-//                    case "":
-//                        clearResultFieldAndShowError(resultTextField,divisorTextField,
-//                                                        divisorLabel.getText());
-//                        break;
-//                    case"0":
-//                        clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
-//                        break;
-//                    default:
-//                        if (divisibleTextField.getText().equals("")){
-//                            clearResultFieldAndShowError(resultTextField,divisibleTextField,
-//                                                            divisibleLabel.getText());
-//                        } else try {
-//                            if (checkCurrentValue(divisibleTextField)
-//                                        && checkCurrentValue(divisorTextField)) {
-//                                /*
-//                                Оперция деление
-//                                 */
-//                                double divisible=Double.parseDouble(divisibleTextField.getText());
-//                                double divisor=Double.parseDouble(divisorTextField.getText());
-//                                try {
-//                                    resultTextField.setText(roundResultValue(divide(divisible,divisor)));
-//                                } catch (Exception e1) {
-//                                    e1.printStackTrace();
-//                                }
-//
-//                                resultTextField.requestFocus();
-//                                }
-//                        } catch (Exception e1) {
-//                            e1.printStackTrace();
-//                        }
-//                        break;
-//                }
                 try {
                     resultTextField.setText(roundResultValue(divide(divisibleTextField.getText(),
                             divisorTextField.getText())));
@@ -168,6 +135,12 @@ public class  CalcForDividing {
 
     }
 
+    /**
+     * Проверка текстового поля на наличие точек (разделителей)
+     * @param jTextField текстовое поле
+     * @return true - если найдено оптимальное количество точек (1 или 0),
+     *         false - если количество точек >1 или равно длине значение текстового поля
+     */
     private boolean checkTextFieldOnDots(JTextField jTextField){
         int dotsCount=0;
         for (char elementTextField : jTextField.getText().toCharArray()) {
@@ -178,14 +151,14 @@ public class  CalcForDividing {
             /*
             Проверка если введены одни точки
             */
-        if (dotsCount==jTextField.getText().length()){
+        if (dotsCount==jTextField.getText().length() && jTextField.getText().length()>0){
             clearResultFieldAndShowError(resultTextField,jTextField,
                     "Text field has ONLY dots!");
-            return false;
+            throw new NumberFormatException("Тесктовое поле содержит одни точки");
         }else if (dotsCount>1){
             clearResultFieldAndShowError(resultTextField,jTextField,
                     "Text field has a lot of dots!");
-            return false;
+            throw new NumberFormatException("В текстовом поле слишком много разделителей");
         }
         return true;
     }

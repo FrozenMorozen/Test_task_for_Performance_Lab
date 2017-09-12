@@ -13,15 +13,25 @@ public class CalcForDividingTest {
 
     @Test
     public void testDivideWholeNumbers() throws Exception {
-        String firstArg="54.0";
-        String secondArg="6.0";
+        String firstArg="54";
+        String secondArg="6";
     double result= Double.parseDouble(firstArg)
                   /Double.parseDouble(secondArg);
-        CalcForDividing calcForDividing=new CalcForDividing();
-    double h=calcForDividing.divide(firstArg,secondArg);
 
-    assertEquals(result,calcForDividing.divide(firstArg,secondArg),1);
+        CalcForDividing calcForDividing=new CalcForDividing();
+    assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
 }
+
+    @Test
+    public void testDivideRationalNumber() throws Exception {
+        String firstArg="153638.212";
+        String secondArg="1384.478";
+        double result= Double.parseDouble(firstArg)
+                      /Double.parseDouble(secondArg);
+
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
+    }
 
     @Test(expected = ArithmeticException.class)
     public void testDivideOnZero() throws Exception {
@@ -35,9 +45,20 @@ public class CalcForDividingTest {
     }
 
     @Test(expected = NumberFormatException.class)
-    public void testInvalidValuesOfTextField() throws Exception {
+    public void testInvalidValuesOfTextFieldDivisible() throws Exception {
         String firstArg="jhg";
         String secondArg="12";
+        double result= Double.parseDouble(firstArg)
+                      /Double.parseDouble(secondArg);
+
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testInvalidValuesOfTextFieldDivisor() throws Exception {
+        String firstArg="54";
+        String secondArg="jhg";
         double result= Double.parseDouble(firstArg)
                       /Double.parseDouble(secondArg);
 
