@@ -30,8 +30,8 @@
       <file leaf-file-name="CalcForDividingTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Testing/CalcForDividingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="247">
+              <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CalcForDividingTest.testInvalidValuesOfTextField">
+  <component name="RunManager" selected="JUnit.CalcForDividingTest.testDivideWholeNumbers">
     <configuration name="CalcForDividingTest.testDivide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -336,9 +336,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextField" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideOnZero" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideWholeNumbers" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideWholeNumbers" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextField" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideOnZero" />
         <item index="3" class="java.lang.String" itemvalue="Application.Main" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivide" />
       </list>
@@ -359,7 +359,7 @@
       <workItem from="1504264220513" duration="11875000" />
       <workItem from="1504276768481" duration="17695000" />
       <workItem from="1504896336703" duration="2762000" />
-      <workItem from="1505119983714" duration="27405000" />
+      <workItem from="1505119983714" duration="27979000" />
     </task>
     <servers />
   </component>
@@ -373,9 +373,6 @@
     <history-entry file="CalcForDividingTest_testDivideOnZero - 2017.09.12 at 14h 42m 31s.xml">
       <configuration name="CalcForDividingTest.testDivideOnZero" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 14h 33m 07s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 14h 35m 38s.xml">
       <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
     </history-entry>
@@ -385,8 +382,11 @@
     <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 14h 37m 16s.xml">
       <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testInvalidValuesOfTextField - 2017.09.12 at 14h 31m 00s.xml">
-      <configuration name="CalcForDividingTest.testInvalidValuesOfTextField" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 14h 52m 15s.xml">
+      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 14h 52m 39s.xml">
+      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CalcForDividingTest_testInvalidValuesOfTextField - 2017.09.12 at 14h 39m 22s.xml">
       <configuration name="CalcForDividingTest.testInvalidValuesOfTextField" configurationId="JUnit" />
@@ -396,7 +396,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94762000" />
+    <option name="totallyTimeSpent" value="95336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -411,7 +411,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36910996" sideWeight="0.31625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36910996" sideWeight="0.68375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36910996" sideWeight="0.68375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -476,7 +476,7 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -705,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/CalcForDividingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="247">
+          <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

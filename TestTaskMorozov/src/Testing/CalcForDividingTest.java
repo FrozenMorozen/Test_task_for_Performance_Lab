@@ -20,7 +20,7 @@ public class CalcForDividingTest {
         CalcForDividing calcForDividing=new CalcForDividing();
     double h=calcForDividing.divide(firstArg,secondArg);
 
-    assertEquals(result,h,1);
+    assertEquals(result,calcForDividing.divide(firstArg,secondArg),1);
 }
 
     @Test(expected = ArithmeticException.class)
