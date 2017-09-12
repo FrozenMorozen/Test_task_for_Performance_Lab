@@ -34,8 +34,8 @@ public class  CalcForDividing {
      */
     public CalcForDividing() {
 
-        /**
-         * Обработчик событий кнопки "="
+        /*
+          Обработчик событий кнопки "="
          */
         equalSignButton.addActionListener(new ActionListener() {
             @Override
@@ -82,9 +82,9 @@ public class  CalcForDividing {
             }
         });
 
-        /**
-         *  Обработчик событий нажатия клавиш в divisibleTextField
-         *  При нажатии "Enter" фокус перемещается на следущее текстовое поле
+        /*
+           Обработчик событий нажатия клавиш в divisibleTextField
+           При нажатии "Enter" фокус перемещается на следущее текстовое поле
          */
         divisibleTextField.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
@@ -93,9 +93,9 @@ public class  CalcForDividing {
             }
         });
 
-        /**
-         * Обработчик событий нажатия клавиш в divisorTextField
-         * При нажатии "Enter" фокус перемещается на кнопку "="
+        /*
+          Обработчик событий нажатия клавиш в divisorTextField
+          При нажатии "Enter" фокус перемещается на кнопку "="
          */
         divisorTextField.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
@@ -147,8 +147,7 @@ public class  CalcForDividing {
                     throw new Exception("Пустое поле "+divisibleLabel.getText());
                 } else if (checkCurrentValue(divisibleTextField)
                         && checkCurrentValue(divisorTextField)) {
-                    return Double.parseDouble(divisible)
-                                            /Double.parseDouble(divisor);
+                    return Double.parseDouble(divisible) / Double.parseDouble(divisor);
                 }
                 break;
         }
@@ -162,7 +161,7 @@ public class  CalcForDividing {
      * @return true - если введены корректные данные
      *         false - если введеные не корректные данные
      */
-    public boolean checkCurrentValue(JTextField jTextField) throws Exception {
+    private boolean checkCurrentValue(JTextField jTextField) throws Exception {
             return checkTextFieldOnLetters(jTextField)
                     && checkTextFieldOnDots(jTextField)
                     && checkLengthTextField(jTextField);
