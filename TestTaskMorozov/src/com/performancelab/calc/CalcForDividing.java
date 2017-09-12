@@ -45,10 +45,9 @@ public class  CalcForDividing {
                         clearResultFieldAndShowError(resultTextField,divisorTextField,
                                                         divisorLabel.getText());
                         break;
-                    case"0":
-                        clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
-                        divisorTextField.selectAll();
-                        break;
+//                    case"0":
+//                        clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
+//                        break;
                     default:
                         if (divisibleTextField.getText().equals("")){
                             clearResultFieldAndShowError(resultTextField,divisibleTextField,
@@ -60,7 +59,12 @@ public class  CalcForDividing {
                              */
                             double divisible=Double.parseDouble(divisibleTextField.getText());
                             double divisor=Double.parseDouble(divisorTextField.getText());
-                             resultTextField.setText(roundResultValue(divide(divisible,divisor)));
+                            try {
+                                resultTextField.setText(roundResultValue(divide(divisible,divisor)));
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                                clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
+                            }
 
                             resultTextField.requestFocus();
                             }
@@ -110,7 +114,8 @@ public class  CalcForDividing {
         divisibleTextField.setFocusable(true);
     }
 
-    public double divide(double divisible,double divisor){
+    public double divide(double divisible,double divisor) throws Exception {
+        if (divisor==0) throw new Exception("Деление на ноль невозможно");
         return divisible/divisor;
     }
 

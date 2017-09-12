@@ -30,11 +30,19 @@ public class CalcForDividingTest {
     }
 
     @Test
-    public void testDivide(){
-        double minForRnd=5;
-        double maxForRnd=1;
+    public void testDivideWholeNumbers() throws Exception {
+        double firstArg=54;
+        double secondArg=6;
         CalcForDividing calcForDividing=new CalcForDividing();
-        assertEquals(minForRnd/maxForRnd,calcForDividing.divide(minForRnd,maxForRnd),DELTA);
+        assertEquals(firstArg/secondArg,calcForDividing.divide(firstArg,secondArg),DELTA);
+    }
+
+    @Test(expected = Exception.class)
+    public void testDivideOnZero() throws Exception {
+        double firstArg=5;
+        double secondArg=0;
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(firstArg/secondArg,calcForDividing.divide(firstArg,secondArg),DELTA);
     }
 
     private static double rnd(double min, double max)

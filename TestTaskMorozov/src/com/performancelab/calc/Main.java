@@ -7,5 +7,7 @@ public class Main {
         CalcForDividing calcForDividing = new CalcForDividing();
         calcForDividing.launchApp();
 
+        String s="2";
+        System.out.println("Значение=>"+Double.parseDouble(s)+"<=");
     }
 }
