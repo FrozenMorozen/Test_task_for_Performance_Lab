@@ -74,8 +74,8 @@ public class  CalcForDividing {
 //                        break;
 //                }
                 try {
-                    resultTextField.setText(divide(divisibleTextField.getText(),
-                                                        divisorTextField.getText()));
+                    resultTextField.setText(roundResultValue(divide(divisibleTextField.getText(),
+                            divisorTextField.getText())));
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
@@ -131,7 +131,7 @@ public class  CalcForDividing {
      * @return значение частного
      * @throws Exception исключение в случае получения невалидных данных
      */
-    public String divide(String divisible, String divisor) throws Exception {
+    public double divide(String divisible, String divisor) throws Exception {
         switch (divisor) {
             case "":
                 clearResultFieldAndShowError(resultTextField,divisorTextField,
@@ -147,12 +147,12 @@ public class  CalcForDividing {
                     throw new Exception("Пустое поле "+divisibleLabel.getText());
                 } else if (checkCurrentValue(divisibleTextField)
                         && checkCurrentValue(divisorTextField)) {
-                    return roundResultValue(Double.parseDouble(divisible)
-                                            /Double.parseDouble(divisor));
+                    return Double.parseDouble(divisible)
+                                            /Double.parseDouble(divisor);
                 }
                 break;
         }
-        return "";
+        return 0;
     }
 
     /**
@@ -164,7 +164,8 @@ public class  CalcForDividing {
      */
     public boolean checkCurrentValue(JTextField jTextField) throws Exception {
             return checkTextFieldOnLetters(jTextField)
-                    && checkTextFieldOnDots(jTextField);
+                    && checkTextFieldOnDots(jTextField)
+                    && checkLengthTextField(jTextField);
 
     }
 
@@ -201,12 +202,18 @@ public class  CalcForDividing {
             if (!Character.isDigit(elementTextField) && elementTextField!='.') {
                 clearResultFieldAndShowError(resultTextField,jTextField,
                                             "Text field has letters!");
-                throw new Exception("Тесктовое поле содержит нечисленые данные");
+                throw new NumberFormatException("Тесктовое поле содержит нечисленые данные");
             }
         }
         return true;
     }
 
+    /**
+     * Проверяет длину значения введённого в текстовое поле
+     * @param jTextField - текстовое поле
+     * @return true - если длина меньше или равна 10-ти символам,
+     *         false - в обратном случае
+     */
     private boolean checkLengthTextField(JTextField jTextField){
         if (jTextField.getText().length()>recomendLength){
             JOptionPane.showMessageDialog(null,
