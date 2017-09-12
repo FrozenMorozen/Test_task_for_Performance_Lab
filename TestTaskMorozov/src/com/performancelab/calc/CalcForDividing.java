@@ -136,7 +136,7 @@ public class  CalcForDividing {
             case "":
                 clearResultFieldAndShowError(resultTextField,divisorTextField,
                         divisorLabel.getText());
-                throw new Exception("Пустое поле "+divisorLabel.getText());
+                throw new NumberFormatException("Пустое поле "+divisorLabel.getText());
             case "0":
                 clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
                 throw new ArithmeticException("Деление на ноль невозможно");

@@ -7,7 +7,10 @@ public class Main {
         CalcForDividing calcForDividing = new CalcForDividing();
         calcForDividing.launchApp();
 
-        String s="2";
-        System.out.println("Значение=>"+5/0+"<=");
+        String firstArg="12dds";
+        String secondArg="12";
+        String result= String.valueOf((Double.parseDouble(firstArg)
+                /Double.parseDouble(secondArg)));
+        System.out.println("Значение=>"+result+"<=");
     }
 }
