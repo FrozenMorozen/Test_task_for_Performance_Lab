@@ -125,6 +125,7 @@ public class  CalcForDividing {
      * Проверяет валидность данных в текствовом поле.
      * Выводит сообщение об ошибке.
      * @param jTextField - текстовое поле с введёнными данными
+     * @throws Exception - исключение в случае нахождения не валидных данных
      * @return true - если введены корректные данные
      *         false - если введеные не корректные данные
      */
@@ -164,10 +165,11 @@ public class  CalcForDividing {
     }
 
     /**
-     * Проверяет наличие букв в текстовом поле
+     * Проверяет наличие отличных от цифр символов в текстовом поле
      * @param jTextField - текстовое поле для проверки
      * @return false - если буквы в текстовом поле были найдены
      *         true - в обратном случае
+     * @throws Exception - исключение в случае нахождения в текстовом поле отличных от цифр символов
      */
     private boolean checkTextFieldOnLetters(JTextField jTextField) throws Exception {
         for (char elementTextField : jTextField.getText().toCharArray()) {
@@ -186,7 +188,7 @@ public class  CalcForDividing {
      * @return true - если длина меньше или равна 10-ти символам,
      *         false - в обратном случае
      */
-    private boolean checkLengthTextField(JTextField jTextField){
+    private boolean checkLengthTextField(JTextField jTextField) throws Exception {
         if (jTextField.getText().length()>recomendLength){
             JOptionPane.showMessageDialog(null,
                     "Значение должно содержать не более "+ recomendLength +" символов");
@@ -197,7 +199,7 @@ public class  CalcForDividing {
             jTextField.setSelectedTextColor(Color.RED);
             jTextField.setSelectionStart(recomendLength);
             jTextField.setSelectionEnd(jTextField.getText().length());
-            return false;
+            throw new Exception("Максимальное количество введённых символов = "+recomendLength);
         }
         return true;
     }
