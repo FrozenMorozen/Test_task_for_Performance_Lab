@@ -105,7 +105,7 @@ public class  CalcForDividing {
                         divisorLabel.getText());
                 throw new NumberFormatException("Пустое поле "+divisorLabel.getText());
             case "0":
-                clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
+                //clearResultFieldAndShowError(resultTextField,divisorTextField,"0");
                 throw new ArithmeticException("Деление на ноль невозможно");
             default:
                 if (divisible.equals("")){

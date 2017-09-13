@@ -20,8 +20,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/performancelab/calc/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -30,8 +30,8 @@
       <file leaf-file-name="CalcForDividingTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Testing/CalcForDividingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="62" column="22" lean-forward="false" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            <state relative-caret-position="281">
+              <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,15 +42,14 @@
       <file leaf-file-name="CalcForDividing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/performancelab/calc/CalcForDividing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+            <state relative-caret-position="104">
+              <caret line="105" column="47" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#CalcForDividing#0;class#CalcForDividing#0" expanded="false" />
                 <element signature="e#1576#1773#0" expanded="true" />
                 <element signature="e#1772#1773#0" expanded="true" />
                 <element signature="method#launchApp#0;class#CalcForDividing#0" expanded="false" />
-                <element signature="method#divide#0;class#CalcForDividing#0" expanded="false" />
                 <element signature="method#checkCurrentValue#0;class#CalcForDividing#0" expanded="false" />
                 <element signature="method#checkTextFieldOnDots#0;class#CalcForDividing#0" expanded="false" />
                 <element signature="method#checkTextFieldOnLetters#0;class#CalcForDividing#0" expanded="false" />
@@ -58,8 +57,8 @@
                 <element signature="method#roundResultValue#0;class#CalcForDividing#0" expanded="false" />
                 <element signature="method#clearResultFieldAndShowError#0;class#CalcForDividing#0" expanded="false" />
                 <element signature="method#showRoundCommentLabel#0;class#CalcForDividing#0" expanded="false" />
-                <element signature="e#10437#10438#0" expanded="true" />
-                <element signature="e#10504#10505#0" expanded="true" />
+                <element signature="e#10439#10440#0" expanded="true" />
+                <element signature="e#10506#10507#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,6 +78,7 @@
       <find>введите число</find>
       <find>Text field has</find>
       <find>Text field has ONLY</find>
+      <find>Деление на ноль</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -91,8 +91,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/performancelab/calc/CalcForDivision.form" />
         <option value="$PROJECT_DIR$/src/com/performancelab/calc/CalcForDividing.form" />
-        <option value="$PROJECT_DIR$/src/com/performancelab/calc/CalcForDividing.java" />
         <option value="$PROJECT_DIR$/src/com/performancelab/calc/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/performancelab/calc/CalcForDividing.java" />
         <option value="$PROJECT_DIR$/src/Testing/CalcForDividingTest.java" />
       </list>
     </option>
@@ -168,6 +168,13 @@
               <item name="TestTaskMorozov" type="b2602c69:ProjectViewProjectNode" />
               <item name="TestTaskMorozov" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="calc" type="462c0819:PsiDirectoryNode" />
+              <item name="CalcForDividing" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="TestTaskMorozov" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TestTaskMorozov" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Testing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -201,8 +208,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CalcForDividingTest.testDivideRationalNumber">
-    <configuration name="CalcForDividingTest.testDivideRationalNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CalcForDividingTest.testDivideEmptyValue">
+    <configuration name="CalcForDividingTest.testDivideEmptyValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Testing.*" />
@@ -214,7 +221,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="Testing" />
       <option name="MAIN_CLASS_NAME" value="Testing.CalcForDividingTest" />
-      <option name="METHOD_NAME" value="testDivideRationalNumber" />
+      <option name="METHOD_NAME" value="testDivideEmptyValue" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -227,7 +234,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="CalcForDividingTest.testDivideWholeNumbers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalcForDividingTest.testDivideOnZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Testing.*" />
@@ -239,7 +246,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="Testing" />
       <option name="MAIN_CLASS_NAME" value="Testing.CalcForDividingTest" />
-      <option name="METHOD_NAME" value="testDivideWholeNumbers" />
+      <option name="METHOD_NAME" value="testDivideOnZero" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -277,7 +284,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="CalcForDividingTest.testInvalidValuesOfTextFieldDivisor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalcForDividingTest.testInvalidValuesOfTextFieldDots" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Testing.*" />
@@ -289,7 +296,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="Testing" />
       <option name="MAIN_CLASS_NAME" value="Testing.CalcForDividingTest" />
-      <option name="METHOD_NAME" value="testInvalidValuesOfTextFieldDivisor" />
+      <option name="METHOD_NAME" value="testInvalidValuesOfTextFieldDots" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -337,19 +344,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideWholeNumbers" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDivisor" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDivisible" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideRationalNumber" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDots" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideOnZero" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDivisible" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideEmptyValue" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideRationalNumber" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideEmptyValue" />
         <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideWholeNumbers" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDivisible" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDivisor" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDivisible" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testDivideOnZero" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CalcForDividingTest.testInvalidValuesOfTextFieldDots" />
       </list>
     </recent_temporary>
   </component>
@@ -368,44 +375,44 @@
       <workItem from="1504264220513" duration="11875000" />
       <workItem from="1504276768481" duration="17695000" />
       <workItem from="1504896336703" duration="2762000" />
-      <workItem from="1505119983714" duration="29772000" />
+      <workItem from="1505119983714" duration="31352000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CalcForDividingTest_testDivideRationalNumber - 2017.09.12 at 18h 36m 36s.xml">
-      <configuration name="CalcForDividingTest.testDivideRationalNumber" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideEmptyValue - 2017.09.13 at 13h 46m 21s.xml">
+      <configuration name="CalcForDividingTest.testDivideEmptyValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideRationalNumber - 2017.09.12 at 18h 36m 41s.xml">
-      <configuration name="CalcForDividingTest.testDivideRationalNumber" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideEmptyValue - 2017.09.13 at 13h 46m 26s.xml">
+      <configuration name="CalcForDividingTest.testDivideEmptyValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 18m 14s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideEmptyValue - 2017.09.13 at 13h 46m 31s.xml">
+      <configuration name="CalcForDividingTest.testDivideEmptyValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 21m 43s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideEmptyValue - 2017.09.13 at 13h 46m 39s.xml">
+      <configuration name="CalcForDividingTest.testDivideEmptyValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 21m 51s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideEmptyValue - 2017.09.13 at 13h 47m 04s.xml">
+      <configuration name="CalcForDividingTest.testDivideEmptyValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 21m 59s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideOnZero - 2017.09.13 at 13h 41m 18s.xml">
+      <configuration name="CalcForDividingTest.testDivideOnZero" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 28m 19s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideOnZero - 2017.09.13 at 13h 41m 57s.xml">
+      <configuration name="CalcForDividingTest.testDivideOnZero" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 28m 36s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testDivideOnZero - 2017.09.13 at 13h 44m 07s.xml">
+      <configuration name="CalcForDividingTest.testDivideOnZero" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 29m 56s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testInvalidValuesOfTextFieldDivisible - 2017.09.13 at 13h 44m 10s.xml">
+      <configuration name="CalcForDividingTest.testInvalidValuesOfTextFieldDivisible" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CalcForDividingTest_testDivideWholeNumbers - 2017.09.12 at 18h 30m 21s.xml">
-      <configuration name="CalcForDividingTest.testDivideWholeNumbers" configurationId="JUnit" />
+    <history-entry file="CalcForDividingTest_testInvalidValuesOfTextFieldDivisible - 2017.09.13 at 13h 44m 55s.xml">
+      <configuration name="CalcForDividingTest.testInvalidValuesOfTextFieldDivisible" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97129000" />
+    <option name="totallyTimeSpent" value="98709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -420,7 +427,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36910996" sideWeight="0.31625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36910996" sideWeight="0.68375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36910996" sideWeight="0.68375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -461,7 +468,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36910996" sideWeight="0.68375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36910996" sideWeight="0.68375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -477,7 +484,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -500,7 +507,6 @@
             <element signature="e#1576#1773#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />
             <element signature="method#launchApp#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="method#divide#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkCurrentValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnDots#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnLetters#0;class#CalcForDividing#0" expanded="false" />
@@ -508,8 +514,8 @@
             <element signature="method#roundResultValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#clearResultFieldAndShowError#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#showRoundCommentLabel#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="e#10437#10438#0" expanded="true" />
-            <element signature="e#10504#10505#0" expanded="true" />
+            <element signature="e#10439#10440#0" expanded="true" />
+            <element signature="e#10506#10507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -547,7 +553,6 @@
             <element signature="e#1576#1773#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />
             <element signature="method#launchApp#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="method#divide#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkCurrentValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnDots#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnLetters#0;class#CalcForDividing#0" expanded="false" />
@@ -555,8 +560,8 @@
             <element signature="method#roundResultValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#clearResultFieldAndShowError#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#showRoundCommentLabel#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="e#10437#10438#0" expanded="true" />
-            <element signature="e#10504#10505#0" expanded="true" />
+            <element signature="e#10439#10440#0" expanded="true" />
+            <element signature="e#10506#10507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -596,7 +601,6 @@
             <element signature="e#1576#1773#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />
             <element signature="method#launchApp#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="method#divide#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkCurrentValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnDots#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnLetters#0;class#CalcForDividing#0" expanded="false" />
@@ -604,8 +608,8 @@
             <element signature="method#roundResultValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#clearResultFieldAndShowError#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#showRoundCommentLabel#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="e#10437#10438#0" expanded="true" />
-            <element signature="e#10504#10505#0" expanded="true" />
+            <element signature="e#10439#10440#0" expanded="true" />
+            <element signature="e#10506#10507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -640,7 +644,6 @@
             <element signature="e#1576#1773#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />
             <element signature="method#launchApp#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="method#divide#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkCurrentValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnDots#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnLetters#0;class#CalcForDividing#0" expanded="false" />
@@ -648,8 +651,8 @@
             <element signature="method#roundResultValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#clearResultFieldAndShowError#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#showRoundCommentLabel#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="e#10437#10438#0" expanded="true" />
-            <element signature="e#10504#10505#0" expanded="true" />
+            <element signature="e#10439#10440#0" expanded="true" />
+            <element signature="e#10506#10507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -704,23 +707,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/performancelab/calc/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/performancelab/calc/CalcForDividing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        <state relative-caret-position="104">
+          <caret line="105" column="47" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CalcForDividing#0;class#CalcForDividing#0" expanded="false" />
             <element signature="e#1576#1773#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />
             <element signature="method#launchApp#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="method#divide#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkCurrentValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnDots#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#checkTextFieldOnLetters#0;class#CalcForDividing#0" expanded="false" />
@@ -728,16 +730,16 @@
             <element signature="method#roundResultValue#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#clearResultFieldAndShowError#0;class#CalcForDividing#0" expanded="false" />
             <element signature="method#showRoundCommentLabel#0;class#CalcForDividing#0" expanded="false" />
-            <element signature="e#10437#10438#0" expanded="true" />
-            <element signature="e#10504#10505#0" expanded="true" />
+            <element signature="e#10439#10440#0" expanded="true" />
+            <element signature="e#10506#10507#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/CalcForDividingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="62" column="22" lean-forward="false" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        <state relative-caret-position="281">
+          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

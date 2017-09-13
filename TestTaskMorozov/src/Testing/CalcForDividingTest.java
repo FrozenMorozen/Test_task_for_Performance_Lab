@@ -45,6 +45,17 @@ public class CalcForDividingTest {
     }
 
     @Test(expected = NumberFormatException.class)
+    public void testDivideEmptyValue() throws Exception {
+        String firstArg="5";
+        String secondArg="";
+        double result= Double.parseDouble(firstArg)
+                /Double.parseDouble(secondArg);
+
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
+    }
+
+    @Test(expected = NumberFormatException.class)
     public void testInvalidValuesOfTextFieldDivisible() throws Exception {
         String firstArg="jhg";
         String secondArg="12";
@@ -61,6 +72,28 @@ public class CalcForDividingTest {
         String secondArg="jhg";
         double result= Double.parseDouble(firstArg)
                       /Double.parseDouble(secondArg);
+
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testInvalidValuesOfTextFieldDot() throws Exception {
+        String firstArg=".";
+        String secondArg="12";
+        double result= Double.parseDouble(firstArg)
+                /Double.parseDouble(secondArg);
+
+        CalcForDividing calcForDividing=new CalcForDividing();
+        assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testInvalidValuesOfTextFieldDots() throws Exception {
+        String firstArg=".............";
+        String secondArg="12";
+        double result= Double.parseDouble(firstArg)
+                /Double.parseDouble(secondArg);
 
         CalcForDividing calcForDividing=new CalcForDividing();
         assertEquals(result,calcForDividing.divide(firstArg,secondArg),DELTA);
