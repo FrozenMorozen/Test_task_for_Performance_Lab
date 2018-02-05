@@ -21,6 +21,7 @@ public class CalcForDividingTest {
     assertEquals(20,calcForDividing.divide("1000000","50000"),DELTA);
     assertEquals(25000006,calcForDividing.divide("100000024","4"),DELTA);
 
+        assertEquals(4,calcForDividing.divide("12","3"),DELTA);
 }
 
     @Test
