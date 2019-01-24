@@ -1,4 +1,4 @@
-# Test_task_for_Performance_Lab
+# division-calc
 
 Документация по калькулятору в папке "Documentation".
 
